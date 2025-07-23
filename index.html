@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <link href="./dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body class="bg-surface text-on-surface flex flex-col min-h-screen transition-colors duration-300">
+
+    <!-- Navbar -->
+    <header class="bg-surface-alt border-b border-outline shadow-sm fixed w-full z-50">
+        <div class="container mx-auto px-4 py-4 relative flex items-center justify-between">
+            <!-- Logo à gauche -->
+            <a href="home" class="text-2xl font-bold text-on-surface">
+                <span>Portfolio<span style="color:#00df9a"> DevOps</span></span>
+            </a>
+
+            <!-- Navigation au centre (position absolue) -->
+            <nav class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8">
+                <a href="home" class="font-bold text-primary hover:opacity-80 transition-opacity"
+                    aria-current="page">Présentation</a>
+                <a href="competences" class="text-on-surface hover:text-primary transition-colors">Compétences</a>
+                <a href="projets" class="text-on-surface hover:text-primary transition-colors">Projets</a>
+            </nav>
+
+            <!-- Darkmode à droite -->
+            <div class="flex items-center space-x-4">
+                <!-- Mode sombre -->
+                <a href="#"
+                    @click.prevent="darkMode = !darkMode; localStorage.setItem('darkMode', darkMode ? 'enabled' : 'disabled')"
+                    class="bg-surface-alt p-2 rounded-radius hover:opacity-80 transition-opacity">
+                    <span x-text="darkMode ? '☀️' : '🌙'">🌙</span>
+                </a>
+
+                <!-- Bouton menu mobile (seulement visible sur mobile) -->
+                <button x-data="{ mobileMenuIsOpen: false }" @click="mobileMenuIsOpen = !mobileMenuIsOpen"
+                    :aria-expanded="mobileMenuIsOpen" class="md:hidden text-on-surface">
+                    <svg x-show="!mobileMenuIsOpen" class="w-6 h-6" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg x-show="mobileMenuIsOpen" class="w-6 h-6" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+
+                    <!-- Menu mobile -->
+                    <div x-show="mobileMenuIsOpen" @click.away="mobileMenuIsOpen = false"
+                        class="md:hidden fixed inset-x-0 top-[72px] z-10 bg-surface-alt border-t border-outline">
+                        <div class="container mx-auto px-4 py-4 flex flex-col items-center space-y-4">
+                            <a href="home" class="text-primary transition-colors text-center font-bold">Présentation</a>
+                            <a href="competences"
+                                class="text-on-surface hover:text-primary transition-colors text-center">Compétences</a>
+                            <a href="projets"
+                                class="text-on-surface hover:text-primary transition-colors text-center">Projets</a>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="flex-grow flex flex-col items-center justify-center pt-20 pb-8">
+        <!-- Présentation générale -->
+        <div class="flex justify-center my-4">
+            <h1
+                class="title text-balance text-xl font-bold text-on-surface-strong lg:text-2xl text-center mb-4 relative">
+                <span class="relative z-10">PRÉSENTATION GÉNÉRALE</span>
+                <span class="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 rounded-full"></span>
+            </h1>
+        </div>
+
+        <!-- Grille avec la carte au centre et des éléments sur les côtés -->
+        <div class="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-8 px-4">
+
+            <!-- Colonne de gauche -->
+            <div class="flex flex-col gap-6 justify-center mx-auto w-full max-w-lg">
+                <!-- Technologies principales -->
+                <div
+                    class="rounded-radius border border-outline bg-surface-alt p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/30">
+                    <h3 class="text-lg font-bold text-on-surface-strong mb-4">Technologies principales</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <div
+                            class="flex items-center gap-2 rounded-radius border border-outline bg-surface px-2.5 py-1.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="size-4 text-primary flex-shrink-0">
+                                <path
+                                    d="M12.378 1.602a.75.75 0 00-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03zM21.75 7.93l-9 5.25v9l8.628-5.032a.75.75 0 00.372-.648V7.93zM11.25 22.18v-9l-9-5.25v8.57a.75.75 0 00.372.648l8.628 5.033z" />
+                            </svg>
+                            <span class="text-xs font-medium text-on-surface whitespace-nowrap">AWS</span>
+                        </div>
+
+                        <div
+                            class="flex items-center gap-2 rounded-radius border border-outline bg-surface px-2.5 py-1.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="size-4 text-primary flex-shrink-0">
+                                <path fill-rule="evenodd"
+                                    d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v6.75a3 3 0 003 3h10.5a3 3 0 003-3v-6.75a3 3 0 00-3-3v-3c0-2.9-2.35-5.25-5.25-5.25zm3.75 8.25v-3a3.75 3.75 0 10-7.5 0v3h7.5z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-xs font-medium text-on-surface whitespace-nowrap">Docker</span>
+                        </div>
+
+                        <div
+                            class="flex items-center gap-2 rounded-radius border border-outline bg-surface px-2.5 py-1.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="size-4 text-primary flex-shrink-0">
+                                <path fill-rule="evenodd"
+                                    d="M2.25 6a3 3 0 013-3h13.5a3 3 0 013 3v12a3 3 0 01-3 3H5.25a3 3 0 01-3-3V6zm3.97.97a.75.75 0 011.06 0l2.25 2.25a.75.75 0 010 1.06l-2.25 2.25a.75.75 0 01-1.06-1.06l1.72-1.72-1.72-1.72a.75.75 0 010-1.06zm4.28 4.28a.75.75 0 000 1.5h3a.75.75 0 000-1.5h-3z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-xs font-medium text-on-surface whitespace-nowrap">Terraform</span>
+                        </div>
+
+                        <div
+                            class="flex items-center gap-2 rounded-radius border border-outline bg-surface px-2.5 py-1.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="size-4 text-primary flex-shrink-0">
+                                <path fill-rule="evenodd"
+                                    d="M14.447 3.027a.75.75 0 01.527.92l-4.5 16.5a.75.75 0 01-1.448-.394l4.5-16.5a.75.75 0 01.921-.526zM16.72 6.22a.75.75 0 011.06 0l5.25 5.25a.75.75 0 010 1.06l-5.25 5.25a.75.75 0 11-1.06-1.06L21.44 12l-4.72-4.72a.75.75 0 010-1.06zm-9.44 0a.75.75 0 010 1.06L2.56 12l4.72 4.72a.75.75 0 11-1.06 1.06L.97 12.53a.75.75 0 010-1.06l5.25-5.25a.75.75 0 011.06 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-xs font-medium text-on-surface whitespace-nowrap">Python</span>
+                        </div>
+
+                        <div
+                            class="flex items-center gap-2 rounded-radius border border-outline bg-surface px-2.5 py-1.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="size-4 text-primary flex-shrink-0">
+                                <path fill-rule="evenodd"
+                                    d="M11.03 3.97a.75.75 0 010 1.06l-6.22 6.22H21a.75.75 0 010 1.5H4.81l6.22 6.22a.75.75 0 11-1.06 1.06l-7.5-7.5a.75.75 0 010-1.06l7.5-7.5a.75.75 0 011.06 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-xs font-medium text-on-surface whitespace-nowrap">Git</span>
+                        </div>
+
+                        <div
+                            class="flex items-center gap-2 rounded-radius border border-outline bg-surface px-2.5 py-1.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="size-4 text-primary flex-shrink-0">
+                                <path fill-rule="evenodd"
+                                    d="M12.97 3.97a.75.75 0 011.06 0l7.5 7.5a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 11-1.06-1.06l6.22-6.22H3a.75.75 0 010-1.5h16.19l-6.22-6.22a.75.75 0 010-1.06z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-xs font-medium text-on-surface whitespace-nowrap">CI/CD</span>
+                        </div>
+
+                        <div
+                            class="flex items-center gap-2 rounded-radius border border-outline bg-surface px-2.5 py-1.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="size-4 text-primary flex-shrink-0">
+                                <path fill-rule="evenodd"
+                                    d="M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm4.5 7.5a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zm3.75-1.5a.75.75 0 00-1.5 0v4.5a.75.75 0 001.5 0V12zm2.25-3a.75.75 0 01.75.75v6.75a.75.75 0 01-1.5 0V9.75A.75.75 0 0113.5 9zm3.75-1.5a.75.75 0 00-1.5 0v9a.75.75 0 001.5 0v-9z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-xs font-medium text-on-surface whitespace-nowrap">Grafana</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Qualifications -->
+                <div
+                    class="rounded-radius border border-outline bg-surface-alt p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/30">
+                    <h3 class="text-lg font-bold text-on-surface-strong mb-4">Qualifications</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3">
+                            <div
+                                class="flex-shrink-0 size-10 rounded-radius bg-primary/10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="size-6 text-primary">
+                                    <path
+                                        d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.949 49.949 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.009 50.009 0 007.5 12.174v-.224c0-.131.067-.248.172-.311a54.614 54.614 0 014.653-2.52.75.75 0 00-.65-1.352 56.129 56.129 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z" />
+                                    <path
+                                        d="M13.06 15.473a48.45 48.45 0 017.666-3.282c.134 1.414.22 2.843.255 4.285a.75.75 0 01-.46.71 47.878 47.878 0 00-8.105 4.342.75.75 0 01-.832 0 47.877 47.877 0 00-8.104-4.342.75.75 0 01-.461-.71c.035-1.442.121-2.87.255-4.286A48.4 48.4 0 016 13.18v1.27a1.5 1.5 0 00-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.661a6.729 6.729 0 00.551-1.608 1.5 1.5 0 00.14-2.67v-.645a48.549 48.549 0 013.44 1.668 2.25 2.25 0 002.12 0z" />
+                                    <path
+                                        d="M4.462 19.462c.42-.419.753-.89 1-1.394.453.213.902.434 1.347.661a6.743 6.743 0 01-1.286 1.794.75.75 0 11-1.06-1.06z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-on-surface-strong">Bachelor (en cours)</h4>
+                                <p class="text-sm text-on-surface">Administrateur Système DevOps</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div
+                                class="flex-shrink-0 size-10 rounded-radius bg-primary/10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="size-6 text-primary">
+                                    <path
+                                        d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.949 49.949 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.009 50.009 0 007.5 12.174v-.224c0-.131.067-.248.172-.311a54.614 54.614 0 014.653-2.52.75.75 0 00-.65-1.352 56.129 56.129 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z" />
+                                    <path
+                                        d="M13.06 15.473a48.45 48.45 0 017.666-3.282c.134 1.414.22 2.843.255 4.285a.75.75 0 01-.46.71 47.878 47.878 0 00-8.105 4.342.75.75 0 01-.832 0 47.877 47.877 0 00-8.104-4.342.75.75 0 01-.461-.71c.035-1.442.121-2.87.255-4.286A48.4 48.4 0 016 13.18v1.27a1.5 1.5 0 00-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.661a6.729 6.729 0 00.551-1.608 1.5 1.5 0 00.14-2.67v-.645a48.549 48.549 0 013.44 1.668 2.25 2.25 0 002.12 0z" />
+                                    <path
+                                        d="M4.462 19.462c.42-.419.753-.89 1-1.394.453.213.902.434 1.347.661a6.743 6.743 0 01-1.286 1.794.75.75 0 11-1.06-1.06z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-on-surface-strong">Bachelor</h4>
+                                <p class="text-sm text-on-surface">Webdesign UX-UI</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div
+                                class="flex-shrink-0 size-10 rounded-radius bg-primary/10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="size-6 text-primary">
+                                <path
+                                    d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.949 49.949 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.009 50.009 0 007.5 12.174v-.224c0-.131.067-.248.172-.311a54.614 54.614 0 014.653-2.52.75.75 0 00-.65-1.352 56.129 56.129 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z" />
+                                <path
+                                    d="M13.06 15.473a48.45 48.45 0 017.666-3.282c.134 1.414.22 2.843.255 4.285a.75.75 0 01-.46.71 47.878 47.878 0 00-8.105 4.342.75.75 0 01-.832 0 47.877 47.877 0 00-8.104-4.342.75.75 0 01-.461-.71c.035-1.442.121-2.87.255-4.286A48.4 48.4 0 016 13.18v1.27a1.5 1.5 0 00-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.661a6.729 6.729 0 00.551-1.608 1.5 1.5 0 00.14-2.67v-.645a48.549 48.549 0 013.44 1.668 2.25 2.25 0 002.12 0z" />
+                                <path
+                                    d="M4.462 19.462c.42-.419.753-.89 1-1.394.453.213.902.434 1.347.661a6.743 6.743 0 01-1.286 1.794.75.75 0 11-1.06-1.06z" />
+                            </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-on-surface-strong">BTS SIO (option SLAM)</h4>
+                                <p class="text-sm text-on-surface">Développement de site web Full-Stack</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Carte de présentation (centre) -->
+            <article
+                class="group flex rounded-radius max-w-[24rem] w-full mx-auto flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/30">
+                <!-- Images -->
+              <div class="relative h-54">
+                <img src="images/losc.jpg" class="h-60 w-full object-cover" alt="cover photo" />
+
+                <div class="absolute bottom-[-2rem] left-1/2 transform -translate-x-1/2">
+                    <div class="z-10 h-40 w-40 overflow-hidden rounded-full border-4 border-[#00df9a] flex justify-center items-center shadow-lg">
+                    <img src="images/profil-Bright.png"
+                        class="h-40 w-40 object-cover transition duration-700 ease-out group-hover:scale-105"
+                        alt="avatar" />
+                    </div>
+                </div>
+                </div>
+
+                <!-- Body -->
+                <div class="flex flex-col gap-3 p-9 text-center mt-18">
+                    <h3 class="title text-balance text-2xl font-bold text-on-surface-strong lg:text-3xl"
+                        aria-describedby="profileDescription">
+                        Louka WASTEELS
+                    </h3>
+                    <span
+                        class="mx-auto w-fit font-bold bg-primary px-3 py-2 text-sm text-on-primary rounded-radius border border-outline">
+                        Consultant DevOps
+                    </span>
+                    <p id="profileDescription" class="mt-6 text-pretty text-md">
+                        Je suis un Consultant DevOps passionné par l'automatisation et l'optimisation des infrastructures.
+                    </p>
+                    <!-- Social Links -->
+                    <div class="mt-6 flex items-center justify-center gap-8">
+                        <!-- Email -->
+                        <a href="mailto:nadirdebaa92@gmail.com" class="text-on-surface hover:text-primary"
+                            aria-label="email">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                aria-hidden="true" class="size-8 shrink-0">
+                                <path
+                                    d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
+                                <path
+                                    d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
+                            </svg>
+                        </a>
+
+                        <!-- GitLab -->
+                        <a href="https://gitlab.com/naqa92" target="_blank" class="text-on-surface hover:text-primary"
+                            aria-label="gitlab">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                aria-hidden="true" class="size-7 shrink-0">
+                                <path
+                                    d="m23.6004 9.5927-.0337-.0862L20.3.9814a.851.851 0 0 0-.3362-.405.8748.8748 0 0 0-.9997.0539.8748.8748 0 0 0-.29.4399l-2.2055 6.748H7.5375l-2.2057-6.748a.8573.8573 0 0 0-.29-.4412.8748.8748 0 0 0-.9997-.0537.8585.8585 0 0 0-.3362.4049L.4332 9.5015l-.0325.0862a6.0657 6.0657 0 0 0 2.0119 7.0105l.0113.0087.03.0213 4.976 3.7264 2.462 1.8633 1.4995 1.1321a1.0085 1.0085 0 0 0 1.2197 0l1.4995-1.1321 2.4619-1.8633 5.006-3.7489.0125-.01a6.0682 6.0682 0 0 0 2.0094-7.003z" />
+                            </svg>
+                        </a>
+
+                        <!-- GitHub -->
+                        <a href="https://github.com/naqa92" target="_blank" class="text-on-surface hover:text-primary"
+                            aria-label="github">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                aria-hidden="true" class="size-7 shrink-0">
+                                <path
+                                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                            </svg>
+                        </a>
+
+                        <!-- Linkedin -->
+                        <a href="https://www.linkedin.com/in/nadir-debaa/" target="_blank"
+                            class="text-on-surface hover:text-primary" aria-label="linkedin">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                                aria-hidden="true" class="size-7 shrink-0">
+                                <path
+                                    d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Colonne de droite -->
+            <div class="flex flex-col gap-6 justify-center mx-auto w-full max-w-lg">
+                <!-- Objectifs professionnels -->
+                <div
+                    class="rounded-radius border border-outline bg-surface-alt p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/30">
+                    <h3 class="text-lg font-bold text-on-surface-strong mb-4">Objectifs professionnels</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3">
+                            <div
+                                class="flex-shrink-0 size-10 rounded-radius bg-primary/10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="size-6 text-primary">
+                                    <path
+                                        d="M5.566 4.657A4.505 4.505 0 016.75 4.5h10.5c.41 0 .806.055 1.183.157A3 3 0 0015.75 3h-7.5a3 3 0 00-2.684 1.657zM2.25 12a3 3 0 013-3h13.5a3 3 0 013 3v6a3 3 0 01-3 3H5.25a3 3 0 01-3-3v-6zM5.25 7.5c-.41 0-.806.055-1.184.157A3 3 0 016.75 6h10.5a3 3 0 012.683 1.657A4.505 4.505 0 0018.75 7.5H5.25z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-on-surface-strong">Gérer des infrastructures cloud</p>
+                            </div>
+                        </li>
+
+                        <li class="flex items-center gap-3">
+                            <div
+                                class="flex-shrink-0 size-10 rounded-radius bg-primary/10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="size-6 text-primary">
+                                    <path fill-rule="evenodd"
+                                        d="M12 6.75a5.25 5.25 0 016.775-5.025.75.75 0 01.313 1.248l-3.32 3.319c.063.475.276.934.641 1.299.365.365.824.578 1.3.64l3.318-3.319a.75.75 0 011.248.313 5.25 5.25 0 01-5.472 6.756c-1.018-.086-1.87.1-2.309.634L7.344 21.3A3.298 3.298 0 112.7 16.657l8.684-7.151c.533-.44.72-1.291.634-2.309A5.342 5.342 0 0112 6.75zM4.117 19.462c.42-.419.753-.89 1-1.394.453.213.902.434 1.347.661a6.743 6.743 0 01-1.286 1.794.75.75 0 11-1.06-1.06z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-on-surface-strong">Implémenter des pratiques GitOps</p>
+                            </div>
+                        </li>
+
+                        <li class="flex items-center gap-3">
+                            <div
+                                class="flex-shrink-0 size-10 rounded-radius bg-primary/10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="size-6 text-primary">
+                                    <path fill-rule="evenodd"
+                                        d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"
+                                        clip-rule="evenodd" />
+                                    <path fill-rule="evenodd"
+                                        d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-on-surface-strong">Monitorer les systèmes</p>
+                            </div>
+                        </li>
+
+                        <li class="flex items-center gap-3">
+                            <div
+                                class="flex-shrink-0 size-10 rounded-radius bg-primary/10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="size-6 text-primary">
+                                    <path fill-rule="evenodd"
+                                        d="M15.22 6.268a.75.75 0 01.968-.432l5.942 2.28a.75.75 0 01.431.97l-2.28 5.941a.75.75 0 11-1.4-.537l1.63-4.251-1.086.483a11.2 11.2 0 00-5.45 5.174.75.75 0 01-1.199.19L9 12.31l-6.22 6.22a.75.75 0 11-1.06-1.06l6.75-6.75a.75.75 0 011.06 0l3.75 3.75a12.652 12.652 0 015.573-6.5l1.363-.607-4.249-1.631a.75.75 0 01-.432-.968z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-on-surface-strong">Automatiser les plateformes</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Langues -->
+                <div
+                    class="rounded-radius border border-outline bg-surface-alt p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/30">
+                    <h3 class="text-lg font-bold text-on-surface-strong mb-4">Langues</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3">
+                            <div
+                                class="flex-shrink-0 size-10 rounded-radius bg-primary/10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="size-6 text-primary">
+                                    <path fill-rule="evenodd"
+                                        d="M9 2.25a.75.75 0 01.75.75v1.506a49.38 49.38 0 015.343.371.75.75 0 11-.186 1.489c-.66-.083-1.323-.151-1.99-.206a18.67 18.67 0 01-2.969 6.323c.317.384.65.753.998 1.107a.75.75 0 11-1.07 1.052A18.902 18.902 0 019 13.687a18.823 18.823 0 01-5.656 4.482.75.75 0 11-.688-1.333 17.323 17.323 0 005.396-4.353A18.72 18.72 0 015.89 8.598a.75.75 0 011.388-.568A17.21 17.21 0 009 11.224a17.17 17.17 0 002.391-5.165 48.038 48.038 0 00-8.298.307.75.75 0 01-.186-1.489 49.159 49.159 0 015.343-.371V3A.75.75 0 019 2.25zM15.75 9a.75.75 0 01.68.433l5.25 11.25a.75.75 0 01-1.36.634l-1.198-2.567h-6.744l-1.198 2.567a.75.75 0 01-1.36-.634l5.25-11.25A.75.75 0 0115.75 9zm-2.672 8.25h5.344l-2.672-5.726-2.672 5.726z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="flex-grow">
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium text-on-surface-strong">Français</span>
+                                    <span class="text-sm">Natif</span>
+                                </div>
+                                <div class="h-2 rounded-radius bg-surface">
+                                    <div class="h-2 rounded-radius bg-primary" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="flex items-center gap-3">
+                            <div
+                                class="flex-shrink-0 size-10 rounded-radius bg-primary/10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="size-6 text-primary">
+                                    <path fill-rule="evenodd"
+                                        d="M9 2.25a.75.75 0 01.75.75v1.506a49.38 49.38 0 015.343.371.75.75 0 11-.186 1.489c-.66-.083-1.323-.151-1.99-.206a18.67 18.67 0 01-2.969 6.323c.317.384.65.753.998 1.107a.75.75 0 11-1.07 1.052A18.902 18.902 0 019 13.687a18.823 18.823 0 01-5.656 4.482.75.75 0 11-.688-1.333 17.323 17.323 0 005.396-4.353A18.72 18.72 0 015.89 8.598a.75.75 0 011.388-.568A17.21 17.21 0 009 11.224a17.17 17.17 0 002.391-5.165 48.038 48.038 0 00-8.298.307.75.75 0 01-.186-1.489 49.159 49.159 0 015.343-.371V3A.75.75 0 019 2.25zM15.75 9a.75.75 0 01.68.433l5.25 11.25a.75.75 0 01-1.36.634l-1.198-2.567h-6.744l-1.198 2.567a.75.75 0 01-1.36-.634l5.25-11.25A.75.75 0 0115.75 9zm-2.672 8.25h5.344l-2.672-5.726-2.672 5.726z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="flex-grow">
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium text-on-surface-strong">Anglais</span>
+                                    <span class="text-sm">Intermédiaire</span>
+                                </div>
+                                <div class="h-2 rounded-radius bg-surface">
+                                    <div class="h-2 rounded-radius bg-primary" style="width: 55%"></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Visitor Counter -->
+    <div class="flex justify-center my-8 px-4" x-data="{ count: null, loading: true }" x-init="
+        fetch('https://7td20tq536.execute-api.us-east-1.amazonaws.com/prod/counter')
+        .then(response => response.json())
+        .then(data => { count = data.count; loading = false; })
+        .catch(error => { console.error('Error fetching visitor count:', error); loading = false; });
+    ">
+        <template x-if="loading">
+            <!-- Secondary spinner -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"
+                class="size-5 fill-secondary motion-safe:animate-spin">
+                <path d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z" opacity=".25" />
+                <path
+                    d="M10.14,1.16a11,11,0,0,0-9,8.92A1.59,1.59,0,0,0,2.46,12,1.52,1.52,0,0,0,4.11,10.7a8,8,0,0,1,6.66-6.61A1.42,1.42,0,0,0,12,2.69h0A1.57,1.57,0,0,0,10.14,1.16Z" />
+            </svg>
+        </template>
+        <template x-if="!loading">
+            <span
+                class="w-fit inline-flex overflow-hidden rounded-radius border border-secondary bg-surface text-xs font-medium text-secondary">
+                <span class="px-2 py-1 bg-secondary/10">
+                    Vous êtes le visiteur numéro : <span x-text="count"></span>
+                </span>
+            </span>
+        </template>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-surface-alt border-t border-outline mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center">
+                <p class="text-sm text-on-surface">© 2025 Portfolio DevOps. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
