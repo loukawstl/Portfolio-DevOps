@@ -6,7 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
     <link href="./dist/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CSS/style.css">
     <title>Document</title>
 </head>
 <body class="bg-surface text-on-surface flex flex-col min-h-screen transition-colors duration-300">
@@ -15,26 +15,20 @@
     <header class="bg-surface-alt border-b border-outline shadow-sm fixed w-full z-50">
         <div class="container mx-auto px-4 py-4 relative flex items-center justify-between">
             <!-- Logo à gauche -->
-            <a href="home" class="text-2xl font-bold text-on-surface">
+            <a href="index.html" class="text-2xl font-bold text-on-surface">
                 <span>Portfolio<span style="color:#00df9a"> DevOps</span></span>
             </a>
 
             <!-- Navigation au centre (position absolue) -->
             <nav class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8">
-                <a href="home" class="font-bold text-primary hover:opacity-80 transition-opacity"
+                <a href="index.html" class="text-on-surfacefont-bold text-primary hover:opacity-80 transition-opacity"
                     aria-current="page">Présentation</a>
-                <a href="competences" class="text-on-surface hover:text-primary transition-colors">Compétences</a>
-                <a href="projets" class="text-on-surface hover:text-primary transition-colors">Projets</a>
+                <a href="competences.html" class="font-bold hover:text-primary transition-colors">Compétences</a>
+                <a href="projets.html" class="text-on-surface hover:text-primary transition-colors">Projets</a>
             </nav>
 
             <!-- Darkmode à droite -->
             <div class="flex items-center space-x-4">
-                <!-- Mode sombre -->
-                <a href="#"
-                    @click.prevent="darkMode = !darkMode; localStorage.setItem('darkMode', darkMode ? 'enabled' : 'disabled')"
-                    class="bg-surface-alt p-2 rounded-radius hover:opacity-80 transition-opacity">
-                    <span x-text="darkMode ? '☀️' : '🌙'">🌙</span>
-                </a>
 
                 <!-- Bouton menu mobile (seulement visible sur mobile) -->
                 <button x-data="{ mobileMenuIsOpen: false }" @click="mobileMenuIsOpen = !mobileMenuIsOpen"
@@ -81,11 +75,11 @@
         <div class="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-8 px-4">
 
             <!-- Colonne de gauche -->
-            <div class="flex flex-col gap-6 justify-center mx-auto w-full max-w-lg">
+            <div class="sticky top-6 self-start flex flex-col gap-6 justify-center mx-auto w-full max-w-lg">
                 <!-- Technologies principales -->
                 <div
-                    class="rounded-radius border border-outline bg-surface-alt p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/30">
-                    <h3 class="text-lg font-bold text-on-surface-strong mb-4">Technologies principales</h3>
+                    class=" rounded-radius border border-outline bg-surface-alt p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/30">
+                    <h3 class="text-lg font-bold text-on-surface-strong mb-4">Technologies DevOps</h3>
                     <div class="flex flex-wrap gap-3">
                         <div
                             class="flex items-center gap-2 rounded-radius border border-outline bg-surface px-2.5 py-1.5">
@@ -162,70 +156,151 @@
                             </svg>
                             <span class="text-xs font-medium text-on-surface whitespace-nowrap">Grafana</span>
                         </div>
+
+                        <div class="flex flex-wrap gap-3">
+                            <div
+                                class="flex items-center gap-2 rounded-radius border border-outline bg-surface px-2.5 py-1.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor"
+                                    class="size-4 text-primary flex-shrink-0">
+                                    <path d="M544 269.8C529.2 279.6 512.2 287.5 494.5 293.8C447.5 310.6 385.8 320 320 320C254.2 320 192.4 310.5 145.5 293.8C127.9 287.5 110.8 279.6 96 269.8L96 352C96 396.2 196.3 432 320 432C443.7 432 544 396.2 544 352L544 269.8zM544 192L544 144C544 99.8 443.7 64 320 64C196.3 64 96 99.8 96 144L96 192C96 236.2 196.3 272 320 272C443.7 272 544 236.2 544 192zM494.5 453.8C447.6 470.5 385.9 480 320 480C254.1 480 192.4 470.5 145.5 453.8C127.9 447.5 110.8 439.6 96 429.8L96 496C96 540.2 196.3 576 320 576C443.7 576 544 540.2 544 496L544 429.8C529.2 439.6 512.2 447.5 494.5 453.8z"/>
+                                </svg> 
+                                <span class="text-xs font-medium text-on-surface whitespace-nowrap">MySQL</span>
+                            </div>
+                        </div>
+
+                        <h3 class="text-lg font-bold text-on-surface-strong mt-4 mb-4">Technologies Développement web</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <div
+                                class="flex items-center gap-2 rounded-radius border border-outline bg-surface px-2.5 py-1.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor"
+                                    class="size-4 text-primary flex-shrink-0">
+                                    <path d="M128 96L162.9 491.8L319.5 544L477.1 491.8L512 96L128 96zM436.2 223.9L252.4 223.9L256.5 273.3L432.1 273.3L418.5 421.7L320.6 448.7L320.6 449L319.5 449L220.8 421.7L214.8 345.9L262.5 345.9L266 384L319.5 398.5L373.2 384L379.2 321.8L212.3 321.8L199.5 176.2L440.6 176.2L436.2 223.9z"/>
+                                </svg> 
+                                <span class="text-xs font-medium text-on-surface whitespace-nowrap">HTML</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-3">
+                            <div
+                                class="flex items-center gap-2 rounded-radius border border-outline bg-surface px-2.5 py-1.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor"
+                                    class="size-4 text-primary flex-shrink-0">
+                                    <path d="M544 96L480 464L256.7 544L64 464L83.6 369.2L165.6 369.2L157.6 409.8L274 454.2L408.1 409.8L426.9 312.7L93.5 312.7L109.5 230.7L443.2 230.7L453.7 178L120.3 178L136.6 96L544 96z"/>
+                                </svg>                           
+                                <span class="text-xs font-medium text-on-surface whitespace-nowrap">CSS</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-3">
+                            <div
+                                class="flex items-center gap-2 rounded-radius border border-outline bg-surface px-2.5 py-1.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor"
+                                    class="size-4 text-primary flex-shrink-0">
+                                    <path d="M365.5 265.4C365.5 243.3 349.9 231.1 322.5 231.1L272.1 231.1L272.1 302.3L314.6 302.3C347.4 302.2 365.5 289 365.5 265.4zM549 252.6C539.5 221.7 538.1 183.8 539.2 154.5C540.3 124 516.5 96 484.5 96L155.7 96C123.6 96 99.9 124.1 101 154.5C102 183.8 100.7 221.7 91.2 252.6C81.6 283.6 65.5 303.2 39 305.7L39 334.2C65.4 336.7 81.6 356.3 91.2 387.3C100.7 418.2 102.1 456.1 101 485.4C99.9 515.9 123.7 543.9 155.7 543.9L484.4 543.9C516.5 543.9 540.2 515.8 539.1 485.4C538.1 456.1 539.4 418.2 548.9 387.3C558.5 356.3 574.6 336.7 601 334.2L601 305.7C574.7 303.2 558.5 283.6 549 252.6zM332.2 439.1L234.3 439.1L234.3 200.8L331.7 200.8C375 200.8 403.4 224.2 403.4 260.2C403.4 285.5 384.3 308.1 359.9 312L359.9 313.3C393.1 316.9 415.4 339.9 415.4 371.6C415.4 413.7 384.1 439.1 332.2 439.1zM322.2 330.4L272.1 330.4L272.1 408.8L324.4 408.8C358.6 408.8 376.7 395.1 376.7 369.3C376.7 343.6 358.1 330.4 322.2 330.4z"/>
+                                </svg>                          
+                                <span class="text-xs font-medium text-on-surface whitespace-nowrap">Bootstrap</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-3">
+                            <div
+                                class="flex items-center gap-2 rounded-radius border border-outline bg-surface px-2.5 py-1.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor"
+                                    class="size-4 text-primary flex-shrink-0">
+                                    <path d="M96 96L96 544L544 544L544 96L96 96zM339.8 445.4C339.8 489 314.2 508.9 276.9 508.9C243.2 508.9 223.7 491.5 213.7 470.4L248 449.7C254.6 461.4 260.6 471.3 275.1 471.3C288.9 471.3 297.7 465.9 297.7 444.8L297.7 301.7L339.8 301.7L339.8 445.4zM439.4 508.9C400.3 508.9 375 490.3 362.7 465.9L397 446.1C406 460.8 417.8 471.7 438.5 471.7C455.9 471.7 467.1 463 467.1 450.9C467.1 436.5 455.7 431.4 436.4 422.9L425.9 418.4C395.5 405.5 375.4 389.2 375.4 354.9C375.4 323.3 399.5 299.3 437 299.3C463.8 299.3 483 308.6 496.8 333L464 354C456.8 341.1 449 336 436.9 336C424.6 336 416.8 343.8 416.8 354C416.8 366.6 424.6 371.7 442.7 379.6L453.2 384.1C489 399.4 509.1 415.1 509.1 450.3C509.1 488.1 479.3 508.9 439.4 508.9z"/>
+                                </svg>
+                                <span class="text-xs font-medium text-on-surface whitespace-nowrap">Javascript</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-3">
+                            <div
+                                class="flex items-center gap-2 rounded-radius border border-outline bg-surface px-2.5 py-1.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor"
+                                    class="size-4 text-primary flex-shrink-0">
+                                    <path d="M320 72C183 72 72 183 72 320C72 457 183 568 320 568C457 568 568 457 568 320C568 183 457 72 320 72zM453.7 215.5C442.2 215.9 434.3 209.1 433.9 198.6C433.6 189.4 440.6 185.2 440.4 179.7C440.2 173.2 430.2 172.9 427.5 173C387.7 174.3 378.9 230 368.6 286.8C390 290 405.2 286.1 413.7 280.6C425.7 272.9 410.4 264.9 412.3 256C416.3 237.8 444.9 237 444.3 261.3C443.9 279.2 418.4 303.1 366.7 297C355.9 356.5 348.3 412 308.5 458.7C279.5 493.2 250.1 498.5 236.9 499C212.3 499.9 195.9 486.7 195.3 469.2C194.7 452.2 209.7 442.9 219.6 442.6C241.5 441.8 249.7 468.3 234.5 476.6C222.4 486.3 234.6 489.2 236.6 489.2C247 488.8 253.9 483.7 258.8 480.2C282.8 460.2 292 425.3 304.2 361.9C312.4 312.2 321.2 283.9 322.4 279.9C305.5 267.2 295.3 251.3 272.6 245.2C257 241 247.5 244.6 240.8 253C232.9 263 235.5 276 243.2 283.7L255.8 297.7C271.3 315.6 279.8 329.6 276.6 348.3C271.5 378.2 235.9 401.2 193.7 388.2C157.7 377.1 151 351.6 155.3 337.6C162.8 313.4 197.7 325.9 189.9 351.2C187.1 359.8 185 359.9 183.6 364.3C179 379.1 225.4 392.7 234.6 362.9C239.1 348.4 229.3 341.2 212.4 323C183.9 291.3 196.4 257.5 215.3 243.3C268.1 203.9 315.8 260.8 325.9 269.1C363.1 160.1 426.4 163.6 428.3 163.6C453.5 162.8 472.5 174.2 473.1 192.2C473.3 199.9 468.9 214.8 453.6 215.3z"/>
+                                </svg>
+                                <span class="text-xs font-medium text-on-surface whitespace-nowrap">Symfony</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-3">
+                            <div
+                                class="flex items-center gap-2 rounded-radius border border-outline bg-surface px-2.5 py-1.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor"
+                                    class="size-4 text-primary flex-shrink-0">
+                                    <path d="M320 168.5C491.4 168.5 623.2 240.7 623.2 320C623.2 399.3 491.3 471.5 320 471.5C148.6 471.5 16.8 399.3 16.8 320C16.8 240.7 148.7 168.5 320 168.5zM320 151.7C143.3 151.7 0 227 0 320C0 413 143.3 488.3 320 488.3C496.7 488.3 640 413 640 320C640 227 496.7 151.7 320 151.7zM218.2 306.5C210.3 347 182.4 342.8 148.1 342.8L161.8 272.2C199.8 272.2 225.6 268.1 218.2 306.5zM97.4 414.3L134.1 414.3L142.8 369.5C183.9 369.5 209.4 372.5 233 350.4C259.1 326.4 265.9 283.7 247.3 262.3C237.6 251.1 222 245.6 200.8 245.6L130.1 245.6L97.4 414.3zM283.1 200.7L319.6 200.7L310.9 245.5C342.4 245.5 371.6 243.2 385.7 256.2C400.5 269.8 393.4 287.2 377.4 369.3L340.4 369.3C355.8 289.9 358.7 283.3 353.1 277.3C347.7 271.5 335.4 272.7 305.7 272.7L286.9 369.3L250.4 369.3L283.1 200.7zM505 306.5C497 347.6 468.3 342.8 434.9 342.8L448.6 272.2C486.8 272.2 512.4 268.1 505 306.5zM384.2 414.3L421 414.3L429.7 369.5C472.9 369.5 496.8 372 519.9 350.4C546 326.4 552.8 283.7 534.2 262.3C524.5 251.1 508.9 245.6 487.7 245.6L417 245.6L384.2 414.3z"/>
+                                </svg>
+                                <span class="text-xs font-medium text-on-surface whitespace-nowrap">PHP</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-3">
+                            <div
+                                class="flex items-center gap-2 rounded-radius border border-outline bg-surface px-2.5 py-1.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor"
+                                    class="size-4 text-primary flex-shrink-0">
+                                    <path d="M320 72C183 72 72 183 72 320C72 457 183 568 320 568C457 568 568 457 568 320C568 183 457 72 320 72zM97 320C97 287.7 103.9 257 116.3 229.3L222.7 520.7C148.3 484.5 97 408.2 97 320zM320 543C298.1 543 277 539.8 257 533.9L323.9 339.5L392.4 527.3C392.9 528.4 393.4 529.4 394 530.4C370.9 538.5 346 543 320 543zM350.7 215.5C364.1 214.8 376.2 213.4 376.2 213.4C388.2 212 386.8 194.3 374.8 195C374.8 195 338.7 197.8 315.4 197.8C293.5 197.8 256.7 195 256.7 195C244.7 194.3 243.3 212.7 255.3 213.4C255.3 213.4 266.7 214.8 278.7 215.5L313.4 310.7L264.6 457L183.4 215.5C196.8 214.8 208.9 213.4 208.9 213.4C220.9 212 219.5 194.3 207.5 195C207.5 195 171.4 197.8 148.1 197.8C143.9 197.8 139 197.7 133.7 197.5C173.6 137 242.1 97 320 97C378 97 430.9 119.2 470.6 155.5C469.6 155.4 468.7 155.3 467.7 155.3C445.8 155.3 430.3 174.4 430.3 194.9C430.3 213.3 440.9 228.8 452.2 247.2C460.7 262 470.6 281.1 470.6 308.7C470.6 327.8 463.3 349.9 453.6 380.8L431.4 455.1L350.7 215.5zM432.1 512.7L500.2 315.8C512.9 284 517.2 258.6 517.2 235.9C517.2 227.7 516.7 220.1 515.7 213C533.1 244.8 543 281.2 543 320C543 402.3 498.4 474.1 432.1 512.7z"/>
+                                </svg>
+                                <span class="text-xs font-medium text-on-surface whitespace-nowrap">Wordpress</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-3">
+                            <div
+                                class="flex items-center gap-2 rounded-radius border border-outline bg-surface px-2.5 py-1.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor"
+                                    class="size-4 text-primary flex-shrink-0">
+                                    <path d="M484.5 168.1C484.3 167 483.8 166 483 165.3C482.2 164.6 481.2 164.1 480.1 164.1C478.1 164.1 442.9 163.3 442.9 163.3C442.9 163.3 421.3 142.5 413.3 134.5L413.3 567.2L539 536C539 536 485 170.5 484.6 168.1zM384.9 134.5C383 128.4 380.6 122.6 377.7 116.9C367.3 96.9 351.7 86 333.3 86C332 86 330.6 86.1 329.3 86.4C328.9 85.6 328.1 85.2 327.7 84.4C319.7 75.6 309.3 71.6 296.9 72C272.9 72.8 248.9 90 229.7 120.8C216.1 142.4 205.7 169.6 202.9 190.9C175.3 199.3 156.1 205.3 155.7 205.7C141.7 210.1 141.3 210.5 139.7 223.7C138.5 233.7 101.7 515.5 101.7 515.5L404.3 568L404.3 129.7C402.8 129.8 401.4 129.9 399.9 130.1C399.9 130.1 394.3 131.7 385.1 134.5zM329.6 151.7C313.6 156.5 296 162.1 278.8 167.3C283.6 148.5 293.2 129.7 304.4 117.3C308.8 112.9 314.8 107.7 321.6 104.5C328.4 118.9 330 138.5 329.6 151.7zM296.8 88.4C301.8 88.2 306.8 89.5 311.2 92C304.8 95.2 298.4 100.4 292.4 106.4C277.2 122.8 265.6 148.4 260.8 172.9C246.4 177.3 232 181.7 218.8 185.7C227.6 147.3 260 89.3 296.8 88.5zM250.4 308.6C252 334.2 319.6 339.8 323.6 400.3C326.4 447.9 298.4 480.4 258 482.8C209.2 486 182.4 457.2 182.4 457.2L192.8 413.2C192.8 413.2 219.6 433.6 241.2 432C255.2 431.2 260.4 419.6 260 411.6C258 378 202.8 380 199.2 324.7C196 278.3 226.4 231.4 293.7 227C319.7 225.4 332.9 231.8 332.9 231.8L317.7 289.4C317.7 289.4 300.5 281.4 280.1 283C250.5 285 250.1 303.8 250.5 308.6zM345.6 146.9C345.6 134.9 344 117.7 338.4 103.3C356.8 106.9 365.6 127.3 369.6 139.7C362.4 141.7 354.4 144.1 345.6 146.9z"/>
+                                </svg>
+                                <span class="text-xs font-medium text-on-surface whitespace-nowrap">Shopify</span>
+                            </div>
+                        </div>
+
+                        <h3 class="text-lg font-bold text-on-surface-strong mt-4 mb-4">Technologies Webdesign et UX/UI</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <div
+                                class="flex items-center gap-2 rounded-radius border border-outline bg-surface px-2.5 py-1.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor"
+                                    class="size-4 text-primary flex-shrink-0">
+                                <path d="M142 159.8C142 106.9 184.9 64 237.8 64L402.2 64C455.1 64 498 106.9 498 159.8C498 193.3 480.8 222.8 454.8 239.9C480.8 257 498 286.5 498 320C498 372.9 455.1 415.8 402.2 415.8L400.1 415.8C375.3 415.8 352.7 406.4 335.7 390.9L335.7 479.2C335.7 532.8 291.7 576 238.3 576C185.5 576 142 533.2 142 480.2C142 446.7 159.2 417.2 185.2 400.1C159.2 383 142 353.5 142 320C142 286.5 159.2 257 185.2 239.9C159.2 222.8 142 193.3 142 159.8zM304.3 255.6L237.8 255.6C202.2 255.6 173.4 284.4 173.4 320C173.4 355.4 202 384.2 237.4 384.4L304.3 384.4L304.3 255.6zM335.7 320C335.7 355.6 364.5 384.4 400.1 384.4L402.2 384.4C437.8 384.4 466.6 355.6 466.6 320C466.6 284.4 437.8 255.6 402.2 255.6L400.1 255.6C364.5 255.6 335.7 284.4 335.7 320zM237.8 415.8L237.4 415.8C202 416 173.4 444.8 173.4 480.2C173.4 515.6 202.6 544.6 238.3 544.6C274.6 544.6 304.3 515.2 304.3 479.1L304.3 415.7L237.8 415.7zM237.8 95.4C202.2 95.4 173.4 124.2 173.4 159.8C173.4 195.4 202.2 224.2 237.8 224.2L304.3 224.2L304.3 95.4L237.8 95.4zM335.7 224.2L402.2 224.2C437.8 224.2 466.6 195.4 466.6 159.8C466.6 124.2 437.8 95.4 402.2 95.4L335.7 95.4L335.7 224.2z"/>
+                                </svg> 
+                                <span class="text-xs font-medium text-on-surface whitespace-nowrap">Figma</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-3">
+                            <div
+                                class="flex items-center gap-2 rounded-radius border border-outline bg-surface px-2.5 py-1.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor"
+                                    class="size-4 text-primary flex-shrink-0">
+                                    <path d="M160 144C151.2 144 144 151.2 144 160L144 480C144 488.8 151.2 496 160 496L480 496C488.8 496 496 488.8 496 480L496 160C496 151.2 488.8 144 480 144L160 144zM96 160C96 124.7 124.7 96 160 96L480 96C515.3 96 544 124.7 544 160L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 160zM224 192C241.7 192 256 206.3 256 224C256 241.7 241.7 256 224 256C206.3 256 192 241.7 192 224C192 206.3 206.3 192 224 192zM360 264C368.5 264 376.4 268.5 380.7 275.8L460.7 411.8C465.1 419.2 465.1 428.4 460.8 435.9C456.5 443.4 448.6 448 440 448L200 448C191.1 448 182.8 443 178.7 435.1C174.6 427.2 175.2 417.6 180.3 410.3L236.3 330.3C240.8 323.9 248.1 320.1 256 320.1C263.9 320.1 271.2 323.9 275.7 330.3L292.9 354.9L339.4 275.9C343.7 268.6 351.6 264.1 360.1 264.1z"/>
+                                </svg> 
+                                <span class="text-xs font-medium text-on-surface whitespace-nowrap">Photoshop</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-3">
+                            <div
+                                class="flex items-center gap-2 rounded-radius border border-outline bg-surface px-2.5 py-1.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor"
+                                    class="size-4 text-primary flex-shrink-0">
+                                    <path d="M264 301.2C295.8 286 312.4 263 312.4 227.2C312.4 156.6 259.8 139.4 199.1 139.4L32 139.4L32 493.8L203.8 493.8C268.2 493.8 328.7 462.9 328.7 390.9C328.7 346.4 307.6 313.5 264 301.2zM109.9 199.9L183 199.9C211.1 199.9 236.4 207.8 236.4 240.4C236.4 270.5 216.7 282.6 188.9 282.6L109.9 282.6L109.9 199.9zM193.2 433.6L109.9 433.6L109.9 336L194.8 336C229.1 336 250.8 350.3 250.8 386.6C250.8 422.4 224.9 433.6 193.2 433.6zM551.7 192.9L408 192.9L408 158L551.7 158L551.7 192.9zM608 369.2C608 293.3 563.6 230 483.1 230C404.9 230 351.8 288.8 351.8 365.8C351.8 445.7 402.1 500.5 483.1 500.5C544.4 500.5 584.1 472.9 603.2 414.2L541 414.2C534.3 436.1 506.7 447.7 485.3 447.7C444 447.7 422.3 423.5 422.3 382.4L607.4 382.4C607.7 378.2 608 373.7 608 369.2zM422.4 338C424.7 304.3 447.1 283.2 480.9 283.2C516.3 283.2 534.1 304 537.1 338L422.4 338z"/>
+                                </svg> 
+                                <span class="text-xs font-medium text-on-surface whitespace-nowrap">Behance</span>
+                            </div>
+                        </div>
+
+                        
+
+
+                        
+
                     </div>
                 </div>
+                
 
-                <!-- Qualifications -->
-                <div
-                    class="rounded-radius border border-outline bg-surface-alt p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/30">
-                    <h3 class="text-lg font-bold text-on-surface-strong mb-4">Qualifications</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-center gap-3">
-                            <div
-                                class="flex-shrink-0 size-10 rounded-radius bg-primary/10 flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    class="size-6 text-primary">
-                                    <path
-                                        d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.949 49.949 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.009 50.009 0 007.5 12.174v-.224c0-.131.067-.248.172-.311a54.614 54.614 0 014.653-2.52.75.75 0 00-.65-1.352 56.129 56.129 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z" />
-                                    <path
-                                        d="M13.06 15.473a48.45 48.45 0 017.666-3.282c.134 1.414.22 2.843.255 4.285a.75.75 0 01-.46.71 47.878 47.878 0 00-8.105 4.342.75.75 0 01-.832 0 47.877 47.877 0 00-8.104-4.342.75.75 0 01-.461-.71c.035-1.442.121-2.87.255-4.286A48.4 48.4 0 016 13.18v1.27a1.5 1.5 0 00-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.661a6.729 6.729 0 00.551-1.608 1.5 1.5 0 00.14-2.67v-.645a48.549 48.549 0 013.44 1.668 2.25 2.25 0 002.12 0z" />
-                                    <path
-                                        d="M4.462 19.462c.42-.419.753-.89 1-1.394.453.213.902.434 1.347.661a6.743 6.743 0 01-1.286 1.794.75.75 0 11-1.06-1.06z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-on-surface-strong">Bachelor (en cours)</h4>
-                                <p class="text-sm text-on-surface">Administrateur Système DevOps</p>
-                            </div>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <div
-                                class="flex-shrink-0 size-10 rounded-radius bg-primary/10 flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    class="size-6 text-primary">
-                                    <path
-                                        d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.949 49.949 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.009 50.009 0 007.5 12.174v-.224c0-.131.067-.248.172-.311a54.614 54.614 0 014.653-2.52.75.75 0 00-.65-1.352 56.129 56.129 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z" />
-                                    <path
-                                        d="M13.06 15.473a48.45 48.45 0 017.666-3.282c.134 1.414.22 2.843.255 4.285a.75.75 0 01-.46.71 47.878 47.878 0 00-8.105 4.342.75.75 0 01-.832 0 47.877 47.877 0 00-8.104-4.342.75.75 0 01-.461-.71c.035-1.442.121-2.87.255-4.286A48.4 48.4 0 016 13.18v1.27a1.5 1.5 0 00-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.661a6.729 6.729 0 00.551-1.608 1.5 1.5 0 00.14-2.67v-.645a48.549 48.549 0 013.44 1.668 2.25 2.25 0 002.12 0z" />
-                                    <path
-                                        d="M4.462 19.462c.42-.419.753-.89 1-1.394.453.213.902.434 1.347.661a6.743 6.743 0 01-1.286 1.794.75.75 0 11-1.06-1.06z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-on-surface-strong">Bachelor</h4>
-                                <p class="text-sm text-on-surface">Webdesign UX-UI</p>
-                            </div>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <div
-                                class="flex-shrink-0 size-10 rounded-radius bg-primary/10 flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                class="size-6 text-primary">
-                                <path
-                                    d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.949 49.949 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.009 50.009 0 007.5 12.174v-.224c0-.131.067-.248.172-.311a54.614 54.614 0 014.653-2.52.75.75 0 00-.65-1.352 56.129 56.129 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z" />
-                                <path
-                                    d="M13.06 15.473a48.45 48.45 0 017.666-3.282c.134 1.414.22 2.843.255 4.285a.75.75 0 01-.46.71 47.878 47.878 0 00-8.105 4.342.75.75 0 01-.832 0 47.877 47.877 0 00-8.104-4.342.75.75 0 01-.461-.71c.035-1.442.121-2.87.255-4.286A48.4 48.4 0 016 13.18v1.27a1.5 1.5 0 00-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.661a6.729 6.729 0 00.551-1.608 1.5 1.5 0 00.14-2.67v-.645a48.549 48.549 0 013.44 1.668 2.25 2.25 0 002.12 0z" />
-                                <path
-                                    d="M4.462 19.462c.42-.419.753-.89 1-1.394.453.213.902.434 1.347.661a6.743 6.743 0 01-1.286 1.794.75.75 0 11-1.06-1.06z" />
-                            </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-on-surface-strong">BTS SIO (option SLAM)</h4>
-                                <p class="text-sm text-on-surface">Développement de site web Full-Stack</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                
             </div>
 
             <!-- Carte de présentation (centre) -->
@@ -243,6 +318,7 @@
                     </div>
                 </div>
                 </div>
+
 
                 <!-- Body -->
                 <div class="flex flex-col gap-3 p-9 text-center mt-18">
@@ -307,6 +383,67 @@
 
             <!-- Colonne de droite -->
             <div class="flex flex-col gap-6 justify-center mx-auto w-full max-w-lg">
+                <!-- Qualifications -->
+                <div
+                    class="rounded-radius border border-outline bg-surface-alt p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/30">
+                    <h3 class="text-lg font-bold text-on-surface-strong mb-4">Qualifications</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3">
+                            <div
+                                class="flex-shrink-0 size-10 rounded-radius bg-primary/10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="size-6 text-primary">
+                                    <path
+                                        d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.949 49.949 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.009 50.009 0 007.5 12.174v-.224c0-.131.067-.248.172-.311a54.614 54.614 0 014.653-2.52.75.75 0 00-.65-1.352 56.129 56.129 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z" />
+                                    <path
+                                        d="M13.06 15.473a48.45 48.45 0 017.666-3.282c.134 1.414.22 2.843.255 4.285a.75.75 0 01-.46.71 47.878 47.878 0 00-8.105 4.342.75.75 0 01-.832 0 47.877 47.877 0 00-8.104-4.342.75.75 0 01-.461-.71c.035-1.442.121-2.87.255-4.286A48.4 48.4 0 016 13.18v1.27a1.5 1.5 0 00-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.661a6.729 6.729 0 00.551-1.608 1.5 1.5 0 00.14-2.67v-.645a48.549 48.549 0 013.44 1.668 2.25 2.25 0 002.12 0z" />
+                                    <path
+                                        d="M4.462 19.462c.42-.419.753-.89 1-1.394.453.213.902.434 1.347.661a6.743 6.743 0 01-1.286 1.794.75.75 0 11-1.06-1.06z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-on-surface-strong">Bachelor (en cours)</h4>
+                                <p class="text-sm text-on-surface">Administrateur Système DevOps</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div
+                                class="flex-shrink-0 size-10 rounded-radius bg-primary/10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="size-6 text-primary">
+                                    <path
+                                        d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.949 49.949 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.009 50.009 0 007.5 12.174v-.224c0-.131.067-.248.172-.311a54.614 54.614 0 014.653-2.52.75.75 0 00-.65-1.352 56.129 56.129 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z" />
+                                    <path
+                                        d="M13.06 15.473a48.45 48.45 0 017.666-3.282c.134 1.414.22 2.843.255 4.285a.75.75 0 01-.46.71 47.878 47.878 0 00-8.105 4.342.75.75 0 01-.832 0 47.877 47.877 0 00-8.104-4.342.75.75 0 01-.461-.71c.035-1.442.121-2.87.255-4.286A48.4 48.4 0 016 13.18v1.27a1.5 1.5 0 00-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.661a6.729 6.729 0 00.551-1.608 1.5 1.5 0 00.14-2.67v-.645a48.549 48.549 0 013.44 1.668 2.25 2.25 0 002.12 0z" />
+                                    <path
+                                        d="M4.462 19.462c.42-.419.753-.89 1-1.394.453.213.902.434 1.347.661a6.743 6.743 0 01-1.286 1.794.75.75 0 11-1.06-1.06z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-on-surface-strong">Bachelor</h4>
+                                <p class="text-sm text-on-surface">Webdesign UX-UI</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div
+                                class="flex-shrink-0 size-10 rounded-radius bg-primary/10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="size-6 text-primary">
+                                <path
+                                    d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.949 49.949 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.009 50.009 0 007.5 12.174v-.224c0-.131.067-.248.172-.311a54.614 54.614 0 014.653-2.52.75.75 0 00-.65-1.352 56.129 56.129 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z" />
+                                <path
+                                    d="M13.06 15.473a48.45 48.45 0 017.666-3.282c.134 1.414.22 2.843.255 4.285a.75.75 0 01-.46.71 47.878 47.878 0 00-8.105 4.342.75.75 0 01-.832 0 47.877 47.877 0 00-8.104-4.342.75.75 0 01-.461-.71c.035-1.442.121-2.87.255-4.286A48.4 48.4 0 016 13.18v1.27a1.5 1.5 0 00-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.661a6.729 6.729 0 00.551-1.608 1.5 1.5 0 00.14-2.67v-.645a48.549 48.549 0 013.44 1.668 2.25 2.25 0 002.12 0z" />
+                                <path
+                                    d="M4.462 19.462c.42-.419.753-.89 1-1.394.453.213.902.434 1.347.661a6.743 6.743 0 01-1.286 1.794.75.75 0 11-1.06-1.06z" />
+                            </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-on-surface-strong">BTS SIO (option SLAM)</h4>
+                                <p class="text-sm text-on-surface">Développement de site web Full-Stack</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
                 <!-- Objectifs professionnels -->
                 <div
                     class="rounded-radius border border-outline bg-surface-alt p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/30">
@@ -376,11 +513,16 @@
                     </ul>
                 </div>
 
-                <!-- Langues -->
+                
+            </div>
+        </div>
+         
+    </main>
+    <!-- Langues -->
                 <div
-                    class="rounded-radius border border-outline bg-surface-alt p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/30">
+                    class="mw-full w-[660px] mx-auto rounded-radius border border-outline bg-surface-alt p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/30">
                     <h3 class="text-lg font-bold text-on-surface-strong mb-4">Langues</h3>
-                    <ul class="space-y-4">
+                    <ul class=" mt-8 space-y-4">
                         <li class="flex items-center gap-3">
                             <div
                                 class="flex-shrink-0 size-10 rounded-radius bg-primary/10 flex items-center justify-center">
@@ -424,35 +566,6 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Visitor Counter -->
-    <div class="flex justify-center my-8 px-4" x-data="{ count: null, loading: true }" x-init="
-        fetch('https://7td20tq536.execute-api.us-east-1.amazonaws.com/prod/counter')
-        .then(response => response.json())
-        .then(data => { count = data.count; loading = false; })
-        .catch(error => { console.error('Error fetching visitor count:', error); loading = false; });
-    ">
-        <template x-if="loading">
-            <!-- Secondary spinner -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"
-                class="size-5 fill-secondary motion-safe:animate-spin">
-                <path d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z" opacity=".25" />
-                <path
-                    d="M10.14,1.16a11,11,0,0,0-9,8.92A1.59,1.59,0,0,0,2.46,12,1.52,1.52,0,0,0,4.11,10.7a8,8,0,0,1,6.66-6.61A1.42,1.42,0,0,0,12,2.69h0A1.57,1.57,0,0,0,10.14,1.16Z" />
-            </svg>
-        </template>
-        <template x-if="!loading">
-            <span
-                class="w-fit inline-flex overflow-hidden rounded-radius border border-secondary bg-surface text-xs font-medium text-secondary">
-                <span class="px-2 py-1 bg-secondary/10">
-                    Vous êtes le visiteur numéro : <span x-text="count"></span>
-                </span>
-            </span>
-        </template>
-    </div>
 
     <!-- Footer -->
     <footer class="bg-surface-alt border-t border-outline mt-auto">
@@ -462,6 +575,5 @@
             </div>
         </div>
     </footer>
-
 </body>
 </html>

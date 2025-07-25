@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <link href="./dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>Document</title>
+</head>
+<body class="bg-surface text-on-surface flex flex-col min-h-screen transition-colors duration-300">
+    <!--Navbar-->
+    <header class="bg-surface-alt border-b border-outline shadow-sm fixed w-full z-50">
+        <div class="container mx-auto px-4 py-4 relative flex items-center justify-between">
+            <!-- Logo à gauche -->
+            <a href="index.html" class="text-2xl font-bold text-on-surface">
+                <span>Portfolio<span style="color:#00df9a"> DevOps</span></span>
+            </a>
+
+            <!-- Navigation au centre (position absolue) -->
+            <nav class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8">
+                <a href="index.html"class="text-on-surface hover:text-primary transition-colors" 
+                    >Présentation</a>
+                <a href="competences.html" class="font-bold text-primary hover:opacity-80 transition-opacity">Compétences</a>
+                <a href="projets.html" class="text-on-surface hover:text-primary transition-colors">Projets</a>
+            </nav>
+
+            <!-- Darkmode à droite -->
+            <div class="flex items-center space-x-4">
+
+                <!-- Bouton menu mobile (seulement visible sur mobile) -->
+                <button x-data="{ mobileMenuIsOpen: false }" @click="mobileMenuIsOpen = !mobileMenuIsOpen"
+                    :aria-expanded="mobileMenuIsOpen" class="md:hidden text-on-surface">
+                    <svg x-show="!mobileMenuIsOpen" class="w-6 h-6" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg x-show="mobileMenuIsOpen" class="w-6 h-6" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+
+                    <!-- Menu mobile -->
+                    <div x-show="mobileMenuIsOpen" @click.away="mobileMenuIsOpen = false"
+                        class="md:hidden fixed inset-x-0 top-[72px] z-10 bg-surface-alt border-t border-outline">
+                        <div class="container mx-auto px-4 py-4 flex flex-col items-center space-y-4">
+                            <a href="home" class="text-primary transition-colors text-center font-bold">Présentation</a>
+                            <a href="competences"
+                                class="text-on-surface hover:text-primary transition-colors text-center">Compétences</a>
+                            <a href="projets"
+                                class="text-on-surface hover:text-primary transition-colors text-center">Projets</a>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+  <main class="items-center justify-center pt-20 pb-8">
+    <section class="container1">
+    <!-- Présentation générale -->
+        <div class="flex justify-center my-4">
+            <h1
+                class="title text-balance text-xl font-bold text-on-surface-strong lg:text-2xl text-center mb-4 relative">
+                <span class="relative z-10">MES COMPETENCES</span>
+                <span class="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 rounded-full"></span>
+            </h1>
+        </div>
+
+
+    <section class="skills-grid" aria-label="Liste des compétences">
+
+
+        
+      <article class="skill-card" tabindex="0">
+        <div class="skill-icon" aria-hidden="true">💻</div>
+        <h2 class="skill-name">Développement Web</h2>
+        <p class="skill-desc">Création de sites web responsives et performants avec HTML, CSS, JavaScript et frameworks modernes.</p>
+      </article>
+
+      <article class="skill-card" tabindex="0">
+        <div class="skill-icon" aria-hidden="true">🎨</div>
+        <h2 class="skill-name">Webdesign</h2>
+        <p class="skill-desc">Design d’interfaces intuitives et esthétiques, en mettant l’accent sur l’expérience utilisateur (UX/UI).</p>
+      </article>
+
+      <article class="skill-card" tabindex="0">
+        <div class="skill-icon" aria-hidden="true">⚙️</div>
+        <h2 class="skill-name">Automatisation</h2>
+        <p class="skill-desc">Mise en place de workflows automatisés pour optimiser les processus et gagner en efficacité.</p>
+      </article>
+
+      <article class="skill-card" tabindex="0">
+        <div class="skill-icon" aria-hidden="true">🔧</div>
+        <h2 class="skill-name">Maintenance</h2>
+        <p class="skill-desc">Suivi, mise à jour et dépannage des systèmes web pour assurer leur fiabilité.</p>
+      </article>
+
+      <article class="skill-card" tabindex="0">
+        <div class="skill-icon" aria-hidden="true">📱</div>
+        <h2 class="skill-name">Responsive Design</h2>
+        <p class="skill-desc">Adaptation parfaite des sites aux différents écrans et appareils mobiles.</p>
+      </article>
+
+      <article class="skill-card" tabindex="0">
+        <div class="skill-icon" aria-hidden="true">⚡</div>
+        <h2 class="skill-name">Performance</h2>
+        <p class="skill-desc">Optimisation du temps de chargement et de la fluidité des interfaces.</p>
+      </article>
+    </section>
+    </section>
+  </main>
+      <!-- Footer -->
+    <footer class="bg-surface-alt border-t border-outline mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center">
+                <p class="text-sm text-on-surface">© 2025 Portfolio DevOps. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
